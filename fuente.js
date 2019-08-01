@@ -80,19 +80,29 @@ var init = function(){
   console.log(tel);
 
   address = document.querySelector("#root-app > div > div.sc-detail-section > div > div:nth-child(4) > div > div > div.sc-title-subtitle-action.sc-title-subtitle-action--default > div.sc-title-subtitle-action__container > div");
-  address = address.innerHTML;
-  address = address.split(',');
-  address1 = address[0].trim();
-  console.log(address1);
-  city = address[1].trim();
-  console.log(city);
-  if (address[2]) {
-    department = address[2].trim();
+  
+  try {
+    address = address.innerHTML;
+    address = address.split(',');
+    address1 = address[0].trim();
+    console.log(address1);
+    city = address[1].trim();
+    console.log(city);
+    if (address[2]) {
+      department = address[2].trim();
+    }
+    else{
+      department =address[1].trim();
+    }
+    console.log(department);
   }
-  else{
-    department =address[1].trim();
+  
+  catch(error) {
+    console.log(error);
+    address = "";
+    address1 = "";
+    address2 = "";
   }
-  console.log(department);
 
   SKU = document.querySelector("#root-app > div > div.sc-detail-section > div > div:nth-child(4) > div > div > div.sc-row-content > div > div.sc-title > div > div > div");
   SKU = SKU.innerHTML;
